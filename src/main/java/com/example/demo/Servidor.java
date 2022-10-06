@@ -17,8 +17,10 @@ public class Servidor extends UnicastRemoteObject implements VerificaInterface {
 
     @Override
     public String primoOuNaoPrimo(int a) throws RemoteException {
-        if(a % 2 == 0 || a == 2) return "O número não é primo";
-        else return "O número é primo!";
+        for (int j = 2; j < a; j++) {
+            if (a % j == 0) return "O número não é primo";
+        }
+        return "O número é primo!";
     }
 
     @Override
